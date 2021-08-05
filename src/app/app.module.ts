@@ -7,6 +7,8 @@ import { NgModule } from "@angular/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './reusable/navbar/navbar.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -40,7 +42,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     TestComponent,
     ResourcesComponent,
-    PolicesComponent
+    PolicesComponent,
+    NavbarComponent
   ],
   entryComponents: [ENTRY_COMPONENTS_COMMONS, ENTRY_COMPONENTS_LIBRARIES],
   imports: [
@@ -48,6 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    BsDropdownModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
