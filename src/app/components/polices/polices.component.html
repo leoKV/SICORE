@@ -1,0 +1,239 @@
+<mat-sidenav-container class="example-container">
+    [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
+    <mat-sidenav
+      position="end"
+      #sidenav
+      mode="over"
+      [disableClose]="true"
+      [(opened)]="CreateSidenavClosed"
+      class="example-sidenav"
+      [fixedBottomGap]="options.value.bottom"
+    >
+      <div class="container-fluid add-edit-sidenav">
+        <div class="row a">
+          <div class="col-12 sidenav-actions d-flex justify-content-between align-items-center">
+            <!-- <button mat-button color="primary" (click)="sidenav.toggle()"><mat-icon>close</mat-icon></button> -->
+            <h4 nz-title>{{ "test.agregarTest" | translate }}</h4>
+            <button mat-mini-fab (click)="sidenav.toggle(); resetForm()" color="basic">
+              <span class="m-0 close-sidenav">
+                <mat-icon>close</mat-icon>
+              </span>
+            </button>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="row">
+          <div class="col-12">
+            <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+              <nz-form-item>
+                <nz-form-label [nzSm]="24" [nzXs]="24" nzRequired nzFor="recurso">Recurso</nz-form-label>
+                <br />
+                <nz-form-control [nzSm]="24" [nzXs]="24" nzErrorTip="Recurso no es valido!">
+                  <input nz-input formControlName="recurso" id="recurso" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSm]="24" [nzXs]="24" nzFor="tipo" nzRequired>Tipo</nz-form-label>
+                <br />
+                <nz-form-control [nzSm]="24" [nzXs]="24" nzErrorTip="Por favor, selecciona un tipo!">
+                  <nz-select formControlName="tipo" nzAllowClear nzPlaceHolder="Selecciona...">
+                    <nz-option nzValue="Tipo 1" nzLabel="Jack"></nz-option>
+                    <nz-option nzValue="Tipo 2" nzLabel="Lucy"></nz-option>
+                  </nz-select>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSm]="24" [nzXs]="24" nzFor="method" nzRequired>Method</nz-form-label>
+                <br />
+                <nz-form-control [nzSm]="24" [nzXs]="24" [nzErrorTip]="errorTpl">
+                  <nz-select formControlName="method" nzAllowClear nzPlaceHolder="Seleciona...">
+                    <nz-option nzValue="Metodo 1" nzLabel="Jack"></nz-option>
+                    <nz-option nzValue="Metodo 2" nzLabel="Lucy"></nz-option>
+                  </nz-select>
+                  <ng-template #errorTpl let-control>
+                    <ng-container *ngIf="control.hasError('required')">Por favor, selecciona un método!</ng-container>
+                    <ng-container *ngIf="control.hasError('confirm')">
+                      Error...
+                    </ng-container>
+                  </ng-template>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSm]="24" [nzXs]="24" nzFor="proyecto" nzRequired>Proyecto</nz-form-label>
+                <br />
+                <nz-form-control [nzSm]="24" [nzXs]="24" [nzErrorTip]="errorTpl">
+                  <nz-select formControlName="proyecto" nzAllowClear nzPlaceHolder="Seleciona...">
+                    <nz-option nzValue="Proyecto 1... fuego!" nzLabel="Proyecto 1"></nz-option>
+                    <nz-option nzValue="Proyecto 2" nzLabel="Proyecto 2"></nz-option>
+                  </nz-select>
+                  <ng-template #errorTpl let-control>
+                    <ng-container *ngIf="control.hasError('required')">Por favor, selecciona un proyecto!</ng-container>
+                    <ng-container *ngIf="control.hasError('confirm')">Error...</ng-container>
+                  </ng-template>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSm]="24" [nzXs]="24" nzFor="aplicaciones" nzRequired >Aplicaciones</nz-form-label>
+                <br />
+                <nz-form-control [nzSm]="24" [nzXs]="24" [nzErrorTip]="errorTpl">
+                  <nz-select formControlName="aplicaciones" nzAllowClear nzPlaceHolder="Seleciona...">
+                    <nz-option nzValue="App 1" nzLabel="App 1"></nz-option>
+                    <nz-option nzValue="App 2" nzLabel="App 2"></nz-option>
+                  </nz-select>
+                  <ng-template #errorTpl let-control>
+                    <ng-container *ngIf="control.hasError('required')">Por favor, selecciona una App!</ng-container>
+                    <ng-container *ngIf="control.hasError('confirm')">
+                      Error...
+                    </ng-container>
+                  </ng-template>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSm]="24" [nzXs]="24" nzFor="recursoPadre" nzRequired>Recurso Padre</nz-form-label>
+                <br />
+                <nz-form-control [nzSm]="24" [nzXs]="24" [nzErrorTip]="errorTpl">
+                  <nz-select formControlName="recursoPadre" nzAllowClear nzPlaceHolder="Seleciona...">
+                    <nz-option nzValue="Recurso padre 1" nzLabel="Selected Item"></nz-option>
+                    <nz-option nzValue="Recurso padre 2" nzLabel="Another Item"></nz-option>
+                  </nz-select>
+                  <ng-template #errorTpl let-control>
+                    <ng-container *ngIf="control.hasError('required')">{{ "general.required" | translate }}</ng-container>
+                    <ng-container *ngIf="control.hasError('confirm')">{{ "general.error" | translate }}</ng-container>
+                  </ng-template>
+                </nz-form-control>
+              </nz-form-item>
+              <div class="actions-buttons-container d-flex flex-row justify-content-end">
+                <button mat-button color="basic" (click)="sidenav.toggle()" class="open-create-edit-sidenav cancel">
+                  Cancelar
+                </button>
+                <button mat-button color="primary" (click)="sidenav.toggle()" class="open-create-edit-sidenav create">
+                  Guardar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-sidenav>
+  
+    <mat-sidenav-content [formGroup]="options">
+      <!-- <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p> -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-end align-items-end">
+            <button mat-button color="primary" (click)="sidenav.toggle()" class="open-create-edit-sidenav create">
+              <mat-icon>add</mat-icon> {{ "general.agregar" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      <nz-table
+        #basicTable
+        [nzData]="listTest"
+        [nzFrontPagination]="false"
+        [nzLoading]="loadingTableTest"
+        nzShowSizeChanger
+        [nzTotal]="paginateTestModel.total"
+        [(nzPageIndex)]="paginateTestModel.page"
+        [(nzPageSize)]="paginateTestModel.itemsPage"
+        (nzPageIndexChange)="paginarTest()"
+        (nzPageSizeChange)="paginarTest()"
+        [nzNoResult]="NoResult"
+        [nzPageSizeOptions]="listPageSize"
+        [nzPaginationPosition]="'both'"
+        [nzShowPagination]="true"
+        [nzShowPagination]="pagination"
+      >
+        <thead>
+          <tr>
+            <th nzRight="0px">{{ "general.actions" | translate }}</th>
+            <th nzShowSort [(nzSort)]="paginateTestModel.sort._id" (nzSortChange)="ordenar('_id', $event)" nzCustomFilter>
+              {{ "test.id" | translate }}
+              <i nz-th-extra class="ant-table-filter-icon" nz-icon nz-dropdown #dropdown="nzDropdown" nzType="search"
+                [nzDropdownMenu]="modalId" [class.ant-table-filter-open]="dropdown.nzVisible" nzTrigger="click" 
+                nzPlacement="bottomRight" [nzClickHide]="false" nzTableFilter></i>
+            </th>
+            <th nzShowSort [(nzSort)]="paginateTestModel.sort.test" (nzSortChange)="ordenar('test', $event)" nzCustomFilter>
+              {{ "test.test" | translate }}
+              <i nz-th-extra class="ant-table-filter-icon" nz-icon nz-dropdown #dropdown="nzDropdown" nzType="search"
+                [nzDropdownMenu]="modalTest" [class.ant-table-filter-open]="dropdown.nzVisible" nzTrigger="click"
+                nzPlacement="bottomRight" [nzClickHide]="false" nzTableFilter></i>
+            </th>
+            <th nzShowSort [(nzSort)]="paginateTestModel.sort.active" (nzSortChange)="ordenar('active', $event)" nzCustomFilter>
+              {{ "test.active" | translate }}
+            </th>
+            <th nzShowSort [(nzSort)]="paginateTestModel.sort.updateUser" (nzSortChange)="ordenar('updateUser', $event)" nzCustomFilter>
+              {{ "test.updateUser" | translate }}
+            </th>
+            <th nzShowSort [(nzSort)]="paginateTestModel.sort.createUser" (nzSortChange)="ordenar('createUser', $event)" nzCustomFilter>
+              {{ "test.createUser" | translate }}
+            </th>
+            <th nzShowSort [(nzSort)]="paginateTestModel.sort.createdAt" (nzSortChange)="ordenar('createdAt', $event)" nzCustomFilter>
+              {{ "test.createAt" | translate }}
+              <i nz-th-extra class="ant-table-filter-icon" nz-icon nz-dropdown #dropdown="nzDropdown" nzType="search"
+                [nzDropdownMenu]="modalCreatedAt" [class.ant-table-filter-open]="dropdown.nzVisible" nzTrigger="click"
+                nzPlacement="bottomRight" [nzClickHide]="false" nzTableFilter></i>
+            </th>
+            <th nzShowSort [(nzSort)]="paginateTestModel.sort.updatedAt" (nzSortChange)="ordenar('updatedAt', $event)" nzCustomFilter>
+              {{ "test.updateAt" | translate }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of basicTable.data" (click)="openEditSidenav(item)">
+            <td nzRight="0px">
+              <mat-icon matTooltip="{{ 'general.edit' | translate }}" class="cursor" (click)="fnMostrarDetalle(data.idTransaction)">edit</mat-icon>
+              <mat-icon matTooltip="{{ 'general.delete' | translate }}" class="cursor" *ngIf="item.active" (click)="fnMostrarDetalle(data.idTransaction)">delete</mat-icon>
+              <mat-icon matTooltip="{{ 'general.restore' | translate }}" class="cursor" *ngIf="!item.active" (click)="fnMostrarDetalle(data.idTransaction)">restore_from_trash</mat-icon>
+            </td>
+            <td>{{ item._id }}</td>
+            <td>{{ item.test }}</td>
+            <td>{{ item.active }}</td>
+            <td>{{ item.updateUser }}</td>
+            <td>{{ item.createUser }}</td>
+            <td>{{ item.createdAt }}</td>
+            <td>{{ item.updatedAt }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+      <!-- Filtros -->
+      <nz-dropdown-menu #modalId="nzDropdownMenu">
+        <div class="search-box">
+          <input type="text" nz-input placeholder="{{ 'general.search' | translate }}" [(ngModel)]="paginateTestModel.filters._id"/>
+          <button nz-button nzSize="small" nzType="primary" (click)="paginarTest()" class="search-button">
+            {{ "general.search" | translate }}
+          </button>
+          <button nz-button nzSize="small" (click)="paginateTestModel.filters._id = ''; paginarTest()" class="ml-2">
+            {{ "general.reset" | translate }}
+          </button>
+        </div>
+      </nz-dropdown-menu>
+      <nz-dropdown-menu #modalTest="nzDropdownMenu">
+        <div class="search-box">
+          <input type="text" nz-input placeholder="{{ 'general.search' | translate }}" [(ngModel)]="paginateTestModel.filters.test"/>
+          <button nz-button nzSize="small" nzType="primary" (click)="paginarTest()" class="search-button">
+            {{ "general.search" | translate }}
+          </button>
+          <button nz-button nzSize="small" (click)="paginateTestModel.filters.test = ''; paginarTest()" class="ml-2">
+            {{ "general.reset" | translate }}
+          </button>
+        </div>
+      </nz-dropdown-menu>
+      <nz-dropdown-menu #modalCreatedAt="nzDropdownMenu">
+        <div class="search-box">
+          <nz-range-picker [nzFormat]="formatoFecha" [nzPlaceHolder]="listaPlaceHolder" [nzRanges]="listaRangosPredefinidos"
+            [ngModel]="fechasIniciales" (ngModelChange)="setFilterCreatedAt($event)">
+          </nz-range-picker>
+          <button nz-button nzSize="small" nzType="primary" (click)="paginarTest()" class="search-button">
+            {{ "general.search" | translate }}
+          </button>
+          <button nz-button nzSize="small" (click)="paginateTestModel.filters.createdAt = {}; paginarTest()" class="ml-2">
+            {{ "general.reset" | translate }}
+          </button>
+        </div>
+      </nz-dropdown-menu>
+      <!-- Fin Filtros -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

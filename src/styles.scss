@@ -1,0 +1,252 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+$color-violeta: #e7dbf0;
+$color-violeta-fuerte: #8E5988;
+$color-title: #8E5988;
+
+html,
+body {
+   
+    font-family: Roboto;
+}
+
+.vh-100 {
+    min-height: 100vh;
+}
+.bg-violeta {
+    background-color: $color-violeta !important;
+}
+.bg-violeta-fuerte {
+    background-color: $color-violeta-fuerte !important;
+}
+
+// --------------------------- logos ---------------------------
+.logo-vc {
+    max-width: 50px;
+}
+// --------------------------- logos ---------------------------
+nz-content {
+    margin: 24px;
+}
+.inner-content {
+    border-radius: 15px 15px 0px 0px;
+}
+.cabecera {
+    background-color: $color-violeta !important;
+    border-radius: 15px 15px 0px 0px;
+    color: #333333 !important;
+    text-transform: uppercase;
+}
+
+// --------------------------- logos ---------------------------
+.logbtn {
+    height: 50px;
+    border: none;
+    background: linear-gradient(120deg, #3498db, #8e44ad, #3498db);
+    background-size: 200%;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s;
+    &:disabled,
+    &.disabled {
+        background: linear-gradient(120deg, #9cc1da, #9f89a8, #b0c5d3);
+        cursor: not-allowed;
+    }
+}
+
+.logbtn:hover {
+    background-position: right;
+}
+
+// --------------------------------- modales -----------------------------------
+.modal-vc {
+    .mat-dialog-container {
+        border-radius: 15px;
+    }
+    .mat-dialog-title {
+        margin: -24px -24px 0px -24px;
+        h4 {
+            padding: 15px;
+            background-color: #d1d1d1;
+            color: #333333;
+            margin-bottom: 0px;
+        }
+    }
+    .modal-bar-info {
+        background-color: #29abe2;
+        color: #ffffff;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
+
+.add-edit-sidenav {
+    min-width: 512px;
+    padding: 33px;
+    padding-bottom: 17px;
+
+    .ant-form-item-label {
+        text-align: left;
+    }
+
+    input,
+    .ant-select-selection {
+        height: 44px;
+    }
+
+    .ant-select-selection__rendered {
+        top: 25%;
+    }
+
+    .ant-form label {
+        font-size: 16px !important;
+    }
+
+    .ant-typography h4, h4.ant-typography {
+        margin-bottom: 0 !important;
+        color: rgba(30,41,59, 1);
+    }
+}
+
+.open-create-edit-sidenav {
+    box-shadow: 0 0 0 0 #0003, 0 0 0 0 #00000024, 0 0 0 0 #0000001f;
+    color: white;
+    box-sizing: border-box;
+    position: relative;
+    outline: none;
+    border: none;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    min-width: 64px;
+    display: inline-flex !important;
+    align-items: center;
+    min-height: 40px;
+    max-height: 40px;
+    line-height: 1 !important;
+    padding: 0 20px !important;
+    border-radius: 9999px !important;
+    margin: 0 7px;
+
+    &.create {
+        color: #fff !important;
+        background-color: #4f46e5;
+    }
+
+    &.cancel {
+        background-color: #0000;
+        color: #475060;
+    }
+
+    &.cancel:hover {
+        background: rgb(148 163 184 / 32%);
+        color: #475060;
+        transition: 0.5s;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    .ant-form-item-label>label {
+        color: #475060;
+    }
+}
+
+.sidenav-actions {
+    min-height: 40px;
+    .close-sidenav {
+        cursor: pointer;
+    }
+
+    button {
+        &:focus {
+            outline: none;
+        }
+    }
+    .mat-fab:not([class*="mat-elevation-z"]),
+    .mat-mini-fab:not([class*="mat-elevation-z"]) {
+        box-shadow: none;
+    }
+
+    .mat-mini-fab:hover {
+        background-color: rgb(239, 239, 239);
+    }
+}
+
+[nz-form] {
+    max-width: 500px;
+}
+
+.phone-select {
+    width: 70px;
+}
+
+.register-are {
+    margin-bottom: 8px;
+}
+
+.mat-divider {
+    margin-top: 24px !important;
+    margin-bottom: 32px !important;
+}
+
+.actions-buttons-container {
+    button {
+        margin: 0 7.5px;
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 575px) { 
+    .mat-sidenav {
+        width: 100%;
+    }
+
+    .add-edit-sidenav {
+        min-width: 100%;
+        padding: 30px;
+        width: 100%;
+    }
+    [nz-form] {
+        max-width: 100%;
+    }
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+    .mat-sidenav {
+        width: 100%;
+    }
+
+    .add-edit-sidenav {
+        min-width: 100%;
+        padding: 30px;
+        width: 100%;
+    }
+    [nz-form] {
+        max-width: 100%;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+    .mat-sidenav {
+        width: auto;
+    }
+    .add-edit-sidenav {
+        min-width: 512px;
+    }
+
+    [nz-form] {
+        max-width: 512px;
+    }
+ }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {  }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { }
