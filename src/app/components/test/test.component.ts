@@ -115,4 +115,10 @@ export class TestComponent implements OnInit {
   resetForm() {
     this.validateForm.reset();
   }
+  fnMostrarDetalle(){
+
+  }
+  submitForm(){
+    
+  }
 }
