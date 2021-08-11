@@ -119,18 +119,24 @@
 
   <mat-sidenav-content [formGroup]="options">
     <!-- <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p> -->
+    <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 d-flex justify-content-center align-items-center ">
+      <h2>Administración de Recursos</h2>
+    </div>
+    <div class="col-2">
     <div class="container-fluid">
-      <div class="row">
         <div class="col-12 d-flex justify-content-end align-items-end">
           <button type="button" class="btn btn-outline-secondary mt-2" (click)="sidenav.toggle(); editbutton = false">
             <div class="row m-1">
-              <mat-icon>add</mat-icon>
+                <mat-icon>add</mat-icon>
               Agregar
             </div>
           </button> 
         </div>
-      </div>
     </div>
+  </div>
+  </div>
 
     <nz-table
       #basicTable
@@ -154,35 +160,35 @@
         <tr>
           <th nzRight="0px">{{ "general.actions" | translate }}</th>
           <th nzShowSort [(nzSort)]="paginateTestModel.sort._id" (nzSortChange)="ordenar('_id', $event)" nzCustomFilter>
-            {{ "test.id" | translate }}
+            code
             <i nz-th-extra class="ant-table-filter-icon" nz-icon nz-dropdown #dropdown="nzDropdown" nzType="search"
               [nzDropdownMenu]="modalId" [class.ant-table-filter-open]="dropdown.nzVisible" nzTrigger="click" 
               nzPlacement="bottomRight" [nzClickHide]="false" nzTableFilter></i>
           </th>
           <th nzShowSort [(nzSort)]="paginateTestModel.sort.test" (nzSortChange)="ordenar('test', $event)" nzCustomFilter>
-            {{ "test.test" | translate }}
+             Recurso
             <i nz-th-extra class="ant-table-filter-icon" nz-icon nz-dropdown #dropdown="nzDropdown" nzType="search"
               [nzDropdownMenu]="modalTest" [class.ant-table-filter-open]="dropdown.nzVisible" nzTrigger="click"
               nzPlacement="bottomRight" [nzClickHide]="false" nzTableFilter></i>
           </th>
           <th nzShowSort [(nzSort)]="paginateTestModel.sort.active" (nzSortChange)="ordenar('active', $event)" nzCustomFilter>
-            {{ "test.active" | translate }}
+            Recurso Padre
           </th>
           <th nzShowSort [(nzSort)]="paginateTestModel.sort.updateUser" (nzSortChange)="ordenar('updateUser', $event)" nzCustomFilter>
-            {{ "test.updateUser" | translate }}
+            Tipo
           </th>
           <th nzShowSort [(nzSort)]="paginateTestModel.sort.createUser" (nzSortChange)="ordenar('createUser', $event)" nzCustomFilter>
-            {{ "test.createUser" | translate }}
+            Metodo
           </th>
           <th nzShowSort [(nzSort)]="paginateTestModel.sort.createdAt" (nzSortChange)="ordenar('createdAt', $event)" nzCustomFilter>
-            {{ "test.createAt" | translate }}
+            Proyecto
             <i nz-th-extra class="ant-table-filter-icon" nz-icon nz-dropdown #dropdown="nzDropdown" nzType="search"
               [nzDropdownMenu]="modalCreatedAt" [class.ant-table-filter-open]="dropdown.nzVisible" nzTrigger="click"
               nzPlacement="bottomRight" [nzClickHide]="false" nzTableFilter></i>
           </th>
           <th nzShowSort [(nzSort)]="paginateTestModel.sort.updatedAt" (nzSortChange)="ordenar('updatedAt', $event)" nzCustomFilter>
-            {{ "test.updateAt" | translate }}
-          </th>
+            Aplicación
+          </th>       
         </tr>
       </thead>
       <tbody>

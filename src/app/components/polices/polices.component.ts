@@ -8,6 +8,7 @@ import {
 import { PaginateModel } from "../../comunes/models/paginate.model";
 import { ZeroService } from "../../comunes/service/zero.service";
 import { environment } from "src/environments/environment";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: "app-test",
@@ -25,6 +26,7 @@ export class PolicesComponent implements OnInit {
   options: FormGroup;
   validateForm!: FormGroup;
   @ViewChild("sidenav", { static: true }) sidenav;
+  editbutton = false;
 
   constructor(public fb: FormBuilder, private zero: ZeroService) {
     this.options = fb.group({
@@ -45,6 +47,43 @@ export class PolicesComponent implements OnInit {
       aplicaciones: [null, []],
       recursoPadre: [null, []],
     });
+  }
+  delete_confirm(){
+    Swal.fire({
+      title: '¿Deseas eliminar esta política?',
+      text: "No se podrá revertir",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          '¡Eliminado!',
+          'La política ha sido eliminada',
+          'success'
+        )
+      }
+    })
+  }
+  restore_confirm(){
+    Swal.fire({
+      title: '¿Deseas restaurar esta política?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          '¡Restaurado!',
+          'La política ha sido recuperada',
+          'success'
+        )
+      }
+    })
   }
 
   paginarTest(): void {
@@ -103,6 +142,7 @@ export class PolicesComponent implements OnInit {
   }
 
   openEditSidenav(item) {
+    this.editbutton = true;
     this.validateForm.get("id").setValue("1");
     this.validateForm.get("tipo").setValue("Tipo 1");
     this.validateForm.get("recurso").setValue("Recurso");
