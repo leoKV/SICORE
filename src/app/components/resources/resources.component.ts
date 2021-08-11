@@ -50,8 +50,8 @@ export class ResourcesComponent implements OnInit {
   }
   delete_confirm(){
     Swal.fire({
-      title: '¿Deseas eliminar este elemento?',
-      text: "No se podrá revertir",
+      title: '¿Deseas inhabilitar este recurso?',
+      text: "!Mucho cuidado!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -60,8 +60,8 @@ export class ResourcesComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
-          '¡Eliminado!',
-          'El registro ha sido eliminado',
+          '¡Inhabilitado!',
+          'El recurso ha sido inhabilitado',
           'success'
         )
       }
@@ -69,7 +69,7 @@ export class ResourcesComponent implements OnInit {
   }
   restore_confirm(){
     Swal.fire({
-      title: '¿Deseas restaurar este elemento?',
+      title: '¿Deseas habilitar este recurso?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -78,8 +78,8 @@ export class ResourcesComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
-          '¡Restaurado!',
-          'El registro ha sido recuperado',
+          '¡Habilitado!',
+          'El recurso ha sido habilitado',
           'success'
         )
       }

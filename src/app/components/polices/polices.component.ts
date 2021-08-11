@@ -50,8 +50,8 @@ export class PolicesComponent implements OnInit {
   }
   delete_confirm(){
     Swal.fire({
-      title: '¿Deseas eliminar esta política?',
-      text: "No se podrá revertir",
+      title: '¿Deseas inhabilitar esta política?',
+      text: "!Mucho cuidado!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -60,8 +60,8 @@ export class PolicesComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
-          '¡Eliminado!',
-          'La política ha sido eliminada',
+          '¡Inhabilitada!',
+          'La política ha sido inhabilitada',
           'success'
         )
       }
@@ -69,7 +69,7 @@ export class PolicesComponent implements OnInit {
   }
   restore_confirm(){
     Swal.fire({
-      title: '¿Deseas restaurar esta política?',
+      title: '¿Deseas habilitar esta política?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -78,8 +78,8 @@ export class PolicesComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
-          '¡Restaurado!',
-          'La política ha sido recuperada',
+          '¡Habilitada!',
+          'La política ha sido habilitada',
           'success'
         )
       }

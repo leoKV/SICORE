@@ -145,7 +145,7 @@
       <div class="row">
         <div class="col-2"></div>
         <div class="col-8 d-flex justify-content-center align-items-center ">
-          <h2>Administración de Políticas</h2>
+          <h2 style="font-family: sans-serif; color: #5E8BA1;">Administración de Políticas</h2>
         </div>
         <div class="col-2">
         <div class="container-fluid">
@@ -209,10 +209,10 @@
               <mat-icon matTooltip="{{ 'general.delete' | translate }}" class="cursor" *ngIf="!item.active"  (click)="delete_confirm()">delete</mat-icon>
               <mat-icon matTooltip="{{ 'general.restore' | translate }}" class="cursor" *ngIf="item.active" (click)="restore_confirm()">restore_from_trash</mat-icon>
             </td>
-            <td>{{ item._id }}</td>
-            <td>{{ item.test }}</td>
-            <td>{{ item.active }}</td>
-            <td>{{ item.updateUser }}</td>
+            <td>SIC-AP-000001</td>
+            <td>Registro de Usuarios</td>
+            <td>Permite registrar nuevos usuarios al sistema</td>
+            <td>Interno</td>
   
           </tr>
         </tbody>
