@@ -8,6 +8,7 @@ import {
 import { PaginateModel } from "../../comunes/models/paginate.model";
 import { ZeroService } from "../../comunes/service/zero.service";
 import { environment } from "src/environments/environment";
+import Swal from 'sweetalert2'
 
 @Component({
   selector: "app-test",
@@ -25,6 +26,7 @@ export class ResourcesComponent implements OnInit {
   options: FormGroup;
   validateForm!: FormGroup;
   @ViewChild("sidenav", { static: true }) sidenav;
+  editbutton = false;
 
   constructor(public fb: FormBuilder, private zero: ZeroService) {
     this.options = fb.group({
@@ -46,6 +48,44 @@ export class ResourcesComponent implements OnInit {
       recursoPadre: [null, []],
     });
   }
+  delete_confirm(){
+    Swal.fire({
+      title: '¿Deseas eliminar este elemento?',
+      text: "No se podrá revertir",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          '¡Eliminado!',
+          'El registro ha sido eliminado',
+          'success'
+        )
+      }
+    })
+  }
+  restore_confirm(){
+    Swal.fire({
+      title: '¿Deseas restaurar este elemento?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          '¡Restaurado!',
+          'El registro ha sido recuperado',
+          'success'
+        )
+      }
+    })
+  }
+  
 
   paginarTest(): void {
     console.log("Paginando con opciones:", this.paginateTestModel);
@@ -103,6 +143,7 @@ export class ResourcesComponent implements OnInit {
   }
 
   openEditSidenav(item) {
+    this.editbutton = true;
     this.validateForm.get("id").setValue("1");
     this.validateForm.get("tipo").setValue("Tipo 1");
     this.validateForm.get("recurso").setValue("Recurso");
@@ -111,6 +152,7 @@ export class ResourcesComponent implements OnInit {
     this.validateForm.get("aplicaciones").setValue("App 2");
     this.validateForm.get("recursoPadre").setValue("Recurso padre 2");
     this.sidenav.toggle();
+   
   }
   resetForm() {
     this.validateForm.reset();

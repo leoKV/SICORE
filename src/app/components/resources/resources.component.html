@@ -1,4 +1,4 @@
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container class="example-container m-4 rounded">
   [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
   <mat-sidenav
     position="end"
@@ -13,7 +13,8 @@
       <div class="row a">
         <div class="col-12 sidenav-actions d-flex justify-content-between align-items-center">
           <!-- <button mat-button color="primary" (click)="sidenav.toggle()"><mat-icon>close</mat-icon></button> -->
-          <h4 nz-title>{{ "test.agregarTest" | translate }}</h4>
+          <h4 nz-title *ngIf="!editbutton">Agregar recurso</h4>
+          <h4 nz-title *ngIf="editbutton">Editar recurso</h4>
           <button mat-mini-fab (click)="sidenav.toggle(); resetForm()" color="basic">
             <span class="m-0 close-sidenav">
               <mat-icon>close</mat-icon>
@@ -121,9 +122,12 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 d-flex justify-content-end align-items-end">
-          <button mat-button color="primary" (click)="sidenav.toggle()" class="open-create-edit-sidenav create">
-            <mat-icon>add</mat-icon> {{ "general.agregar" | translate }}
-          </button>
+          <button type="button" class="btn btn-outline-secondary mt-2" (click)="sidenav.toggle(); editbutton = false">
+            <div class="row m-1">
+              <mat-icon>add</mat-icon>
+              Agregar
+            </div>
+          </button> 
         </div>
       </div>
     </div>
@@ -144,6 +148,7 @@
       [nzPaginationPosition]="'both'"
       [nzShowPagination]="true"
       [nzShowPagination]="pagination"
+      class="m-3"
     >
       <thead>
         <tr>
@@ -181,11 +186,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of basicTable.data" (click)="openEditSidenav(item)">
+        <!-- <tr *ngFor="let item of basicTable.data" (click)="openEditSidenav(item)"> -->
+          <tr *ngFor="let item of basicTable.data">
           <td nzRight="0px">
-            <mat-icon matTooltip="{{ 'general.edit' | translate }}" class="cursor" (click)="fnMostrarDetalle(data.idTransaction)">edit</mat-icon>
-            <mat-icon matTooltip="{{ 'general.delete' | translate }}" class="cursor" *ngIf="item.active" (click)="fnMostrarDetalle(data.idTransaction)">delete</mat-icon>
-            <mat-icon matTooltip="{{ 'general.restore' | translate }}" class="cursor" *ngIf="!item.active" (click)="fnMostrarDetalle(data.idTransaction)">restore_from_trash</mat-icon>
+            <mat-icon matTooltip="{{ 'general.edit' | translate }}" class="cursor" (click)="openEditSidenav(item)">edit</mat-icon>
+            <mat-icon matTooltip="{{ 'general.delete' | translate }}" class="cursor" *ngIf="!item.active"  (click)="delete_confirm()">delete</mat-icon>
+            <mat-icon matTooltip="{{ 'general.restore' | translate }}" class="cursor" *ngIf="item.active" (click)="restore_confirm()">restore_from_trash</mat-icon>
           </td>
           <td>{{ item._id }}</td>
           <td>{{ item.test }}</td>
