@@ -100,7 +100,10 @@
                 </th>
                 <th nzShowSort [(nzSort)]="paginateTestModel.sort.updatedAt" (nzSortChange)="ordenar('updatedAt', $event)" nzCustomFilter>
                   Aplicación
-                </th>       
+                </th> 
+                <th nzShowSort [(nzSort)]="paginateTestModel.sort.updatedAt" (nzSortChange)="ordenar('updatedAt', $event)" nzCustomFilter>
+                  Estatús
+                </th>          
               </tr>
             </thead>
             <tbody>
@@ -114,13 +117,14 @@
                   <mat-icon matTooltip="{{ 'general.delete' | translate }}" class="cursor" *ngIf="!item.active"  (click)="delete_confirm()">delete</mat-icon>
                   <mat-icon matTooltip="{{ 'general.restore' | translate }}" class="cursor" *ngIf="item.active" (click)="restore_confirm()">restore_from_trash</mat-icon> -->
                 </td>
-                <td>{{ item._id }}</td>
-                <td>{{ item.test }}</td>
-                <td>{{ item.active }}</td>
-                <td>{{ item.updateUser }}</td>
-                <td>{{ item.createUser }}</td>
-                <td>{{ item.createdAt }}</td>
-                <td>{{ item.updatedAt }}</td>
+                <td>SIC-RSC-000001</td>
+                <td>Security Tokens</td>
+                <td>Login</td>
+                <td>View</td>
+                <td>Post</td>
+                <td>SICORE WEB</td>
+                <td>SICORE</td>
+                <td>Activo</td>
               </tr>
             </tbody>
           </nz-table>
