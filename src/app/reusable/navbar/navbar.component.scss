@@ -1,12 +1,22 @@
 .navbar {
-    background: white ;
+    // background:#6E2565 ;
+    // background: white;
+    background: #AA076B;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #61045F, #AA076B);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #61045F, #AA076B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 .container-fluid{
     padding: 0;
 }
 
 .bg-purple{
-    background: #6E2565;
+    //  background: #9c27b0;
+    // background: #6E2565;
+    background: #bc4e9c;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f80759, #bc4e9c);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f80759, #bc4e9c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     max-height: 8vh;
 }
 
@@ -44,15 +54,21 @@ h3{
 }
 li a.nav-link{
 font-family:Verdana;
-color: #6E2565;
+color: white;
+// color: #6E2565;
+
 }
 div a.dropdown-item{
     font-family:Verdana;
-    color:#6E2565;
+    color:black;
 }
 div.dropdown-menu{
-   background:#a5b1c2; 
+//    background:#a5b1c2; 
+background: #bdc3c7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
-// #cad8e0
-// #8897a9 
-// #c8c7d5
+img{
+     border-radius: 3%;
+}

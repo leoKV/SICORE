@@ -51,7 +51,7 @@ export class PolicesComponent implements OnInit {
   delete_confirm(){
     Swal.fire({
       title: '¿Deseas inhabilitar esta política?',
-      text: "!Mucho cuidado!",
+      text: "¡Mucho cuidado!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -83,6 +83,25 @@ export class PolicesComponent implements OnInit {
           'success'
         )
       }
+    })
+  }
+  create_successful(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: '¡Creación Exitosa!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+  
+  update_successful(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: '¡Actualización Exitosa!',
+      showConfirmButton: false,
+      timer: 1500
     })
   }
 
