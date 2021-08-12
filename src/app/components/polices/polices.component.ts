@@ -87,9 +87,8 @@ export class PolicesComponent implements OnInit {
   }
   create_successful(){
     Swal.fire({
-      position: 'top-end',
       icon: 'success',
-      title: '¡Creación Exitosa!',
+      title: '¡Política Creada!',
       showConfirmButton: false,
       timer: 1500
     })
@@ -97,9 +96,8 @@ export class PolicesComponent implements OnInit {
   
   update_successful(){
     Swal.fire({
-      position: 'top-end',
       icon: 'success',
-      title: '¡Actualización Exitosa!',
+      title: '¡Política Actualizada!',
       showConfirmButton: false,
       timer: 1500
     })

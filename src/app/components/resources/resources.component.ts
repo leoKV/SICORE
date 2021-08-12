@@ -88,22 +88,22 @@ export class ResourcesComponent implements OnInit {
 
   create_successful(){
     Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: '¡Creación Exitosa!',
-      showConfirmButton: false,
-      timer: 1500
-    })
+    icon: 'success',
+    title: '¡Recurso Creado!',
+    showConfirmButton: false,
+    timer: 1500
+     })
+     
   }
   
   update_successful(){
     Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: '¡Actualización Exitosa!',
-      showConfirmButton: false,
-      timer: 1500
+    icon: 'success',
+    title: '¡Recurso Actualizado!',
+    showConfirmButton: false,
+    timer: 1500
     })
+
   }
 
   paginarTest(): void {

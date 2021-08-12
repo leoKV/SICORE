@@ -107,7 +107,10 @@
               <button mat-button color="basic" (click)="sidenav.toggle()" class="open-create-edit-sidenav cancel">
                 Cancelar
               </button>
-              <button mat-button color="primary" (click)="sidenav.toggle()" class="open-create-edit-sidenav create">
+              <button mat-button color="primary" (click)="sidenav.toggle()" class="open-create-edit-sidenav create" *ngIf="!editbutton" (click)="create_successful()">
+                Guardar
+              </button>
+              <button mat-button color="primary" (click)="sidenav.toggle()" class="open-create-edit-sidenav create" *ngIf="editbutton" (click)="update_successful()">
                 Guardar
               </button>
             </div>
@@ -116,6 +119,9 @@
       </div>
     </div>
   </mat-sidenav>
+<!-- 
+  <h4 nz-title *ngIf="!editbutton">Agregar Recurso</h4>
+  <h4 nz-title *ngIf="editbutton">Editar Recurso</h4> -->
 
   <mat-sidenav-content [formGroup]="options">
     <!-- <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p> -->

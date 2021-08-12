@@ -135,7 +135,11 @@
                 <button mat-button color="basic" (click)="sidenav.toggle()" class="open-create-edit-sidenav cancel">
                   Cancelar
                 </button>
-                <button mat-button color="primary" (click)="sidenav.toggle()" class="open-create-edit-sidenav create">
+                <button mat-button color="primary" (click)="sidenav.toggle()" class="open-create-edit-sidenav create" *ngIf="!editbutton" (click)="create_successful()">
+                  Guardar
+                </button>
+
+                <button mat-button color="primary" (click)="sidenav.toggle()" class="open-create-edit-sidenav create" *ngIf="editbutton" (click)="update_successful()">
                   Guardar
                 </button>
               </div>
