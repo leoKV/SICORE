@@ -166,7 +166,7 @@
         <tr>
           <th nzRight="0px">{{ "general.actions" | translate }}</th>
           <th nzShowSort [(nzSort)]="paginateTestModel.sort._id" (nzSortChange)="ordenar('_id', $event)" nzCustomFilter>
-            code
+            Code
             <i nz-th-extra class="ant-table-filter-icon" nz-icon nz-dropdown #dropdown="nzDropdown" nzType="search"
               [nzDropdownMenu]="modalId" [class.ant-table-filter-open]="dropdown.nzVisible" nzTrigger="click" 
               nzPlacement="bottomRight" [nzClickHide]="false" nzTableFilter></i>
@@ -196,7 +196,7 @@
             Aplicación
           </th>    
           <th nzShowSort [(nzSort)]="paginateTestModel.sort.updatedAt" (nzSortChange)="ordenar('updatedAt', $event)" nzCustomFilter>
-            Estatús
+            Estatus
           </th>    
         </tr>
       </thead>
