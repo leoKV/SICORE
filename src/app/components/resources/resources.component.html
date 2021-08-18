@@ -38,8 +38,10 @@
               <br />
               <nz-form-control [nzSm]="24" [nzXs]="24" nzErrorTip="Por favor, selecciona un tipo!">
                 <nz-select formControlName="tipo" nzAllowClear nzPlaceHolder="Selecciona...">
-                  <nz-option nzValue="Tipo 1" nzLabel="Jack"></nz-option>
-                  <nz-option nzValue="Tipo 2" nzLabel="Lucy"></nz-option>
+                  <nz-option nzValue="Tipo 1" nzLabel="SERVICE"></nz-option>
+                  <nz-option nzValue="Tipo 2" nzLabel="VIEW"></nz-option>
+                  <nz-option nzValue="Tipo 3" nzLabel="COMPONENT"></nz-option>
+                  <nz-option nzValue="Tipo 4" nzLabel="MENÚ"></nz-option>
                 </nz-select>
               </nz-form-control>
             </nz-form-item>
@@ -48,8 +50,8 @@
               <br />
               <nz-form-control [nzSm]="24" [nzXs]="24" [nzErrorTip]="errorTpl">
                 <nz-select formControlName="method" nzAllowClear nzPlaceHolder="Seleciona...">
-                  <nz-option nzValue="Metodo 1" nzLabel="Jack"></nz-option>
-                  <nz-option nzValue="Metodo 2" nzLabel="Lucy"></nz-option>
+                  <nz-option nzValue="Metodo 1" nzLabel="POST"></nz-option>
+                  <nz-option nzValue="Metodo 2" nzLabel="GET"></nz-option>
                 </nz-select>
                 <ng-template #errorTpl let-control>
                   <ng-container *ngIf="control.hasError('required')">Por favor, selecciona un método!</ng-container>
@@ -64,8 +66,9 @@
               <br />
               <nz-form-control [nzSm]="24" [nzXs]="24" [nzErrorTip]="errorTpl">
                 <nz-select formControlName="proyecto" nzAllowClear nzPlaceHolder="Seleciona...">
-                  <nz-option nzValue="Proyecto 1... fuego!" nzLabel="Proyecto 1"></nz-option>
-                  <nz-option nzValue="Proyecto 2" nzLabel="Proyecto 2"></nz-option>
+                  <nz-option nzValue="Proyecto 1... fuego!" nzLabel="SICORE-SERVICES"></nz-option>
+                  <nz-option nzValue="Proyecto 2" nzLabel="SICORE-WEB"></nz-option>
+                  <nz-option nzValue="Proyecto 2" nzLabel="OTRO"></nz-option>
                 </nz-select>
                 <ng-template #errorTpl let-control>
                   <ng-container *ngIf="control.hasError('required')">Por favor, selecciona un proyecto!</ng-container>
@@ -78,8 +81,8 @@
               <br />
               <nz-form-control [nzSm]="24" [nzXs]="24" [nzErrorTip]="errorTpl">
                 <nz-select formControlName="aplicaciones" nzAllowClear nzPlaceHolder="Seleciona...">
-                  <nz-option nzValue="App 1" nzLabel="App 1"></nz-option>
-                  <nz-option nzValue="App 2" nzLabel="App 2"></nz-option>
+                  <nz-option nzValue="App 1" nzLabel="SICORE"></nz-option>
+                  <nz-option nzValue="App 2" nzLabel="OTRA"></nz-option>
                 </nz-select>
                 <ng-template #errorTpl let-control>
                   <ng-container *ngIf="control.hasError('required')">Por favor, selecciona una App!</ng-container>
@@ -94,8 +97,10 @@
               <br />
               <nz-form-control [nzSm]="24" [nzXs]="24" [nzErrorTip]="errorTpl">
                 <nz-select formControlName="recursoPadre" nzAllowClear nzPlaceHolder="Seleciona...">
-                  <nz-option nzValue="Recurso padre 1" nzLabel="Selected Item"></nz-option>
-                  <nz-option nzValue="Recurso padre 2" nzLabel="Another Item"></nz-option>
+                  <nz-option nzValue="Recurso padre 1" nzLabel="LOGIN"></nz-option>
+                  <nz-option nzValue="Recurso padre 2" nzLabel="ACTIVIDADES"></nz-option>
+                  <nz-option nzValue="Recurso padre 3" nzLabel="REGISTRO"></nz-option>
+                  <nz-option nzValue="Recurso padre 4" nzLabel="OTRO"></nz-option>
                 </nz-select>
                 <ng-template #errorTpl let-control>
                   <ng-container *ngIf="control.hasError('required')">{{ "general.required" | translate }}</ng-container>
